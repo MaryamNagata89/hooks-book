@@ -1,10 +1,18 @@
-import React,{ useState } from 'react';
+import React,{ useEffect, useState } from 'react';
 
 const App = props => {
 const [state,setState] = useState(props)
 
 const {name, price}=state
-
+useEffect(()=>{
+console.log('this is likecommponent')
+})
+useEffect(()=>{
+console.log('Coomon soo difficult')
+},[])
+useEffect(()=>{
+console.log('useEffect for name only')
+},[name])
  return (
     <>
 	<p>現在の{name}は{price}です。</p>
