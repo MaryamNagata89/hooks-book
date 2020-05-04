@@ -19,7 +19,7 @@ const reset = () => {
   );
 }
 App.defaultProps = {
-ame:'',
+name:'',
 price:1000
 }
 export default App;
