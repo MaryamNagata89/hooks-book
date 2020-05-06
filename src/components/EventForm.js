@@ -1,4 +1,8 @@
 import React,{ useState } from 'react';
+import {
+CREATE_EVENT,
+DELETE_ALL_EVENTS
+} from '../actions'
 
 
 const EventForm = ({state,dispatch}) =>{
@@ -7,11 +11,13 @@ const EventForm = ({state,dispatch}) =>{
 
 const addEvent = e => {
 e.preventDefault()
+    
 dispatch({
-type:'CREATE_EVENT',
+type:CREATE_EVENT,
 title,
 body
 })
+    
 setTitle('')
 setBody('')
 
@@ -19,7 +25,7 @@ setBody('')
  const deleteAllEvents = e => {
 e.preventDefault()
 const result = window.confirm('全てのイベントを本当に削除してよろしいでしょうか>？')
-if (result) dispatch({ type:'DELETE_ALL_EVENTS' })
+if (result) dispatch({ type:DELETE_ALL_EVENTS })
 }
 const unCreatable = title === '' || body === ''
  return(
@@ -29,12 +35,12 @@ const unCreatable = title === '' || body === ''
 <form>
   <div class="form-group">
 <label htmlFor="formEventTitle">タイトル</label>
-<input className="form-control" id="formEventTitle" value={title} onChange={e =>setTitle(e.target.value)}/>
+<input className="form-control" id="formEventTitle" value={title} onChange={e => setTitle(e.target.value)}/>
 </div>
 
  <div class="form-group">
 <label htmlFor="formEventBody">ボディー</label>
-<textarea className="form-control" id="formEventBody" value={body} onChange={e =>setBody(e.target.value)}/>
+<textarea className="form-control" id="formEventBody" value={body} onChange={e => setBody(e.target.value)}/>
 </div>
 <button className="btn btn-primary" onClick={addEvent} disabled={unCreatable}>イ
 ベントを作成する</button>
