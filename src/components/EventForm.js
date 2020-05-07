@@ -1,4 +1,4 @@
-import React,{ useContext , useState } from 'react';
+import React, { useContext , useState } from 'react';
 import {
 CREATE_EVENT,
 DELETE_ALL_EVENTS
@@ -45,7 +45,7 @@ const unCreatable = title === '' || body === ''
 </div>
 <button className="btn btn-primary" onClick={addEvent} disabled={unCreatable}>イ
 ベントを作成する</button>
-<button className="btn btn-danger" onClick={deleteAllEvents} disabled={state.length === 0}>全てのイベントを削除する</button>
+<button className="btn btn-danger" onClick={deleteAllEvents} disabled={state.events.length === 0}>全てのイベントを削除する</button>
 </form>
 </>
 )
